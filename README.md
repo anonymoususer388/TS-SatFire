@@ -19,7 +19,7 @@
 
 ## Abstract
 
-We introduce a comprehensive multi-temporal remote sensing dataset covering the entire life cycle of wildfires for active fire detection, daily wildfire monitoring and next-day wildfire prediction. This multi-task dataset comprises 179 wildfire events recorded majority in the US between January 2017 and October 2021. For each wildfire, images from the beginning until the end of the wildfire are provided. It includes a total of 3552 surface reflectance images along with auxiliary data such as weather, topography, and fuel information. Labels for current active fires (AF) and burned areas (BA) are provided for each image. Manual quality assurance is performed for all AF labels and BA test labels.The dataset sets three distinct tasks: a) active fire detection, b) daily burned area mapping and c) daily wildfire progression prediction. Detection tasks, such as active fire detection and burned area mapping, require pixel-wise classification utilizing multi-spectral, multi-temporal images. Prediction tasks involve learning the underlying physical processes by integrating satellite observations with auxiliary data. The primary objective of this dataset is to stimulate further research in wildfire monitoring, particularly leveraging advanced deep learning models capable of effectively processing multi-temporal, multi-spectral images to detect fires and accurately predict fire progression. The benchmarks for detection and prediction tasks indicate that utilizing both spatial and temporal information is crucial for this dataset.
+We introduce a comprehensive multi-temporal remote sensing dataset covering the entire life cycle of wildfires for active fire detection, daily wildfire monitoring and next-day wildfire prediction. This multi-task dataset comprises wildfire events recorded majority in the US between January 2017 and October 2021. For each wildfire, images from the beginning until the end of the wildfire are provided. It includes a total of 3552 surface reflectance images along with auxiliary data such as weather, topography, and fuel information. Labels for current active fires (AF) and burned areas (BA) are provided for each image. Manual quality assurance is performed for all AF labels and BA test labels. The dataset sets three distinct tasks: a) active fire detection, b) daily burned area mapping and c) daily wildfire progression prediction. Detection tasks, such as active fire detection and burned area mapping, require pixel-wise classification utilizing multi-spectral, multi-temporal images. Prediction tasks involve learning the underlying physical processes by integrating satellite observations with auxiliary data. The primary objective of this dataset is to stimulate further research in wildfire monitoring, particularly leveraging advanced deep learning models capable of effectively processing multi-temporal, multi-spectral images to detect fires and accurately predict fire progression. The benchmarks for detection and prediction tasks indicate that utilizing both spatial and temporal information is crucial for this dataset.
 
 ## Spectral bands used in the dataset
 ![Alt text](figures/flowchart.svg?raw=true "Dataset Setup")
@@ -28,7 +28,7 @@ We introduce a comprehensive multi-temporal remote sensing dataset covering the 
 
 ## Preparing the dataset
 The dataset in GeoTIFF format can be downloaded from the Google Gdrive link below:
-[https://drive.google.com/drive/folders/1ea49dNLa7gqtOTIJ5FCiDExWTFRa7gNQ?usp=sharing]
+[[https://drive.google.com/drive/folders/1ea49dNLa7gqtOTIJ5FCiDExWTFRa7gNQ?usp=sharing](https://bit.ly/3yHgcAD)]
 
 Prepare the environment
 ```
@@ -48,10 +48,3 @@ python dataset_gen_pred.py -mode (train/val/test) -ts (length of the time-series
 ```
 python run_spatial_temp_model.py -m <model name> -mode <af/ba> -b <batch size> -r <number of run> -lr <learning rate> -nh <hyperparameters of SwinUNETR> -ed <hyperparameters of SwinUNETR and UNETR> -nc <number of input channels> -ts <length of time-series> -it <interval> -test
 ```
-
-## Author
-
-#### Yu Zhao (zhao2@kth.se), Sebastian Gerard(sgerard@kth.se), Yifang Ban (yifang@kth.se), KTH Royal Institute of Technology, Stockholm, Sweden
-
-## Acknowledgement
-#### The research is part of the project ‘Sentinel4Wildfire’ funded by Formas, the Swedish research council for sustainable development and the project ‘EO-AI4Global Change’ funded by Digital Futures.
